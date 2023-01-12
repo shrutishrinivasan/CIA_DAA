@@ -46,6 +46,7 @@ def get_max_score(arr):
                 return m,i,j
             
 def traceback_position(arr,i,j):
+    value=0
     value = arr[i][j]
     if arr[i-1][j-1]+2 == value:
         new=arr[i-1][j-1]
@@ -62,8 +63,6 @@ def traceback_position(arr,i,j):
         elif arr[i][j-1]-1 == value:
             new=arr[i][j-1]
             return new,i-1,j
-        
-        
         
 # main code
 str1 = input("Enter string1: ")
@@ -97,4 +96,11 @@ m,i,j=get_max_score(a)
 print("Max score:",m)
 print("Index position of max score:",i,j)
 print()
+
+trace = []
+trace.append(m)
+for k in range(n+1):
+    
+a,b,c=traceback_position(a,i,j)
+print(a,b,c)
 
